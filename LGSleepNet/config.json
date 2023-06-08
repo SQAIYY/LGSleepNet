@@ -1,0 +1,38 @@
+{
+    "name": " ",
+    "n_gpu": 1,
+
+    "arch": {
+        "type": "EEGCNNVIT",
+        "args": {
+        }
+    },
+    "data_loader": {
+        "args":{
+            "batch_size": 256,
+            "num_folds": 20
+        }
+    },
+    "optimizer": {
+        "type": "Lion",
+        "args":{
+            "lr": 0.0005,
+            "weight_decay": 0.001,
+            "amsgrad": true
+        }
+    },
+
+
+
+    "metrics": [
+        "accuracy"
+    ],
+    "trainer": {
+        "epochs": 100,
+        "save_dir": "saved/",
+        "save_period": 80,
+        "verbosity": 2,
+
+        "monitor": "max val_accuracy"
+    }
+}
